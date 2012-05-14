@@ -1,4 +1,4 @@
-import java.awt.Color;
+
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
@@ -34,9 +34,9 @@ public class Game extends BasicGame {
 		{
 			testanim = new Animation();
 			testSheet = new SpriteSheet("/testSpriteSheet.png", 32);
-			testanim.addFrame(testSheet.getCell(0), 200);
-			testanim.addFrame(testSheet.getCell(1), 200);
 			testanim.addFrame(testSheet.getCell(3), 200);
+			testanim.addFrame(testSheet.getCell(4), 200);
+			testanim.addFrame(testSheet.getCell(5), 200);
 			testanim.loop();
 		}	
 		
