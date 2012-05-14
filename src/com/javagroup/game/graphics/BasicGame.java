@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
+import com.javagroup.game.input.Input;
+
 
 /**
  * Basic Game class, extend to make a game
@@ -27,6 +29,8 @@ public abstract class BasicGame implements Runnable{
 	private boolean fullscreen = false;
 	
 	private GameWindow gamewindow;
+	
+	private FullScreen fullwindow;
 	
 	private String title = "Name Goes Here :)";
 	
@@ -140,6 +144,21 @@ public abstract class BasicGame implements Runnable{
 	   }
 	   
 		   
+	}
+	
+	public void createFullSCreen(){
+		if(fullscreen && fullwindow!=null)
+			return;
+	   if(!fullscreen){
+		   
+		   fullwindow.makeFullScreen();
+		   
+		   gamewindow.hideWindow();
+		   Input.getInput().resetKeys();
+		  
+		   fullscreen = true;
+		   
+	   }
 	}
 	
 	/**
