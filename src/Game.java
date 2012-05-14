@@ -37,7 +37,7 @@ public class Game extends BasicGame {
 			testSheet = new SpriteSheet("/testSpriteSheet.png", 32);
 			testanim.addFrame(testSheet.getCell(0), 200);
 			testanim.addFrame(testSheet.getCell(1), 200);
-			testanim.addFrame(testSheet.getCell(2), 200);
+			testanim.addFrame(testSheet.getCell(3), 200);
 			testanim.loop();
 		}	
 		

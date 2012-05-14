@@ -73,10 +73,12 @@ public class SpriteSheet {
 	 * @return Returns a subimage specified by the cell
 	 */
 	public BufferedImage getCell(int cell) {
-		int cellX = cell % cellSize;
-		int cellY = cell / cellSize;
+		int sheetWidth = sheet.getWidth()/cellSize;
 		
-		BufferedImage image = Art.toCompatibleBufferedImage(sheet.getSubimage(cellX * cellSize, cellY * cellSize, cellSize, cellSize));
+		int cellX = cellSize * (cell%sheetWidth);
+		int cellY = cellSize * (cell/sheetWidth);
+		
+		BufferedImage image = Art.toCompatibleBufferedImage(sheet.getSubimage(cellX , cellY , cellSize, cellSize));
 		return image;
 	}
 	
