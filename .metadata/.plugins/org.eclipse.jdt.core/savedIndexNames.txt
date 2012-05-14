@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Rich\Dropbox\JavaGroup\.metadata\.plugins\org.eclipse.jdt.core
-829194814.index
-80798862.index

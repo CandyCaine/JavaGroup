@@ -1,5 +1,6 @@
 package com.javagroup.game.input;
 
+import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -28,6 +29,10 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, F
 	public Input() {
 		keys = new boolean[1000];
 		mousePos = new Point(0, 0);
+	}
+	
+	public static void addListeners(Component e){
+		
 	}
 	
 	public static boolean isKeyDown(int key) {

@@ -25,9 +25,24 @@ public abstract class BasicGame implements Runnable {
 	private boolean fullscreen = false;
 
 	private GameWindow gamewindow;
+<<<<<<< HEAD
 
 	public BasicGame() {
 		size = new Dimension(640, 480);
+=======
+	
+	private String title = "Name Goes Here :)";
+	
+	private int frames = 0;
+	
+	private int fps = 0;
+	
+	private long lastFPSUpdate = 0;
+	
+	
+	public BasicGame(){
+		size = new Dimension(640,480);
+>>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 		gamewindow = new GameWindow(this);
 	}
 
@@ -47,6 +62,7 @@ public abstract class BasicGame implements Runnable {
 		initiate();
 
 		int delta = 0;
+<<<<<<< HEAD
 
 		long lastUpdate = System.nanoTime();
 
@@ -54,6 +70,24 @@ public abstract class BasicGame implements Runnable {
 
 			render();
 
+=======
+		
+		
+		long lastUpdate = System.nanoTime();
+		
+		while(running){
+			
+			Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
+			g.setColor(Color.black);
+			g.fillRect(0, 0, size.width, size.height);
+			gamewindow.setTitle(title + "   fps:"+ fps);
+			
+			render(g);
+			
+			g.dispose();
+			buffer.show();
+			
+>>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 			try {
 				Thread.sleep(6);
 			} catch (InterruptedException e) {
@@ -65,6 +99,14 @@ public abstract class BasicGame implements Runnable {
 			update(delta);
 
 			lastUpdate = System.nanoTime();
+<<<<<<< HEAD
+=======
+			
+			updateFPS();
+			
+			
+			
+>>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 		}
 
 	}
@@ -81,7 +123,22 @@ public abstract class BasicGame implements Runnable {
 			buffer.show();
 		} while (buffer.contentsLost());
 	}
+<<<<<<< HEAD
 
+=======
+	
+	public void updateFPS(){
+		frames++;
+		if(System.nanoTime() - lastFPSUpdate >= 1000000000L){
+			fps = frames;
+			frames = 0;
+			lastFPSUpdate = System.nanoTime();
+		}
+		
+		
+	}
+	
+>>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 	/**
 	 * Create a normal window with our game if game is not started , this will
 	 * start our game :)
