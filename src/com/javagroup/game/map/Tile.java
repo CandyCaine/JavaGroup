@@ -1,15 +1,20 @@
 package com.javagroup.game.map;
 
-public abstract class Tile {
+import com.javagroup.game.graphics.image.Art;
+import com.javagroup.game.graphics.image.Texture;
+
+public class Tile {
 
 	protected float x;
 	protected float y;
 	protected int id;
+	private Texture texture;
 	
 	public Tile(int id, float x, float y) {
 		this.id = id;
 		this.x = x;
 		this.y = y;
+		texture = Art.getTextureByID(id);
 	}
 	
 	public float getX() {
@@ -35,5 +40,9 @@ public abstract class Tile {
 	
 	public int getID() {
 		return id;
+	}
+	
+	public Texture getTexture() {
+		return texture;
 	}
 }
