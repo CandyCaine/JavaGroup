@@ -34,6 +34,7 @@ public class Emitter {
 		this.speed = speed;
 		this.maxParticles = maxParticles;
 		active = true;
+		life = Long.MAX_VALUE;
 	}
 
 	public void setLocation(float x, float y) {
@@ -80,7 +81,7 @@ public class Emitter {
 	
 	public void update(float xOffset, float yOffset) {
 			for (int i = 0; i < particles.size(); i++) {
-				particles.get(i).update(this);
+				particles.get(i).update(this, xOffset, yOffset);
 
 				if (!particles.get(i).isAlive()) {
 					particles.remove(i);

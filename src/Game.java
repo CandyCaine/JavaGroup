@@ -37,11 +37,16 @@ public class Game extends BasicGame {
 		// Testing
 		{
 			testMap = new Map("Test", 32, 32);
+<<<<<<< HEAD
 			particleSystem = new ParticleSystem();
 			emitter = new BloodEmitter(200, 0.5F, 10);
 			emitter.setLocation(-300, 250);
 			particleSystem.addEmitter(emitter);
 			
+=======
+			Effect.playEffect(EffectType.BloodEffect, 100, 200);
+			Effect.genericParticleEffect();
+>>>>>>> 31db4cae2bd056c11b642f1356514257e5c8bfaa
 		}
 
 	}
