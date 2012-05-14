@@ -1,16 +1,12 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> b5d0a791f2f542ce60cfa1259d2028bbd19db311
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import com.javagroup.game.graphics.BasicGame;
-import com.javagroup.game.graphics.animation.Animation;
+import com.javagroup.game.graphics.entity.testEnt;
 import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.graphics.image.Font;
-import com.javagroup.game.graphics.image.SpriteSheet;
 import com.javagroup.game.graphics.particle.Emitter;
 import com.javagroup.game.graphics.particle.ParticleSystem;
 import com.javagroup.game.graphics.particle.emitter.BloodEmitter;
@@ -26,23 +22,17 @@ public class Game extends BasicGame {
 	ParticleSystem particleSystem;
 	Emitter emitter, emitter2, emitter3;
 	BufferedImage testFont;
-	Animation testanim;
-	SpriteSheet testSheet;
+	testEnt testent;
+
+	
 
 	@Override
 	public void initiate() {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
+		testent = new testEnt();
 		
-		//animation test
-		{
-			testanim = new Animation();
-			testSheet = new SpriteSheet("/testSpriteSheet.png", 32);
-			testanim.addFrame(testSheet.getCell(3), 200);
-			testanim.addFrame(testSheet.getCell(4), 200);
-			testanim.addFrame(testSheet.getCell(5), 200);
-			testanim.loop();
-		}	
+
 		
 		// Testing
 		{
@@ -61,7 +51,7 @@ public class Game extends BasicGame {
 		testMap.render(g, Math.round(x), Math.round(y));
 		particleSystem.render(g);
 		g.drawImage(testFont, Math.round(x) + (-350), 100, testFont.getWidth(), testFont.getHeight(), null);
-		g.drawImage(testanim.getImage(),30,30,null);
+		testent.render(g);
 	}
 
 	@Override
@@ -79,7 +69,7 @@ public class Game extends BasicGame {
 		}
 
 		particleSystem.update(x, y);
-		testanim.update();
+		testent.update(delta);
 
 	}
 
