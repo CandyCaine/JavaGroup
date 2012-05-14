@@ -1,5 +1,6 @@
 package com.javagroup.game.graphics;
 
+import java.awt.Dimension;
 import java.awt.DisplayMode;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -29,7 +30,9 @@ public class FullScreen extends JFrame{
 		device = env.getDefaultScreenDevice();
 		
 	}
-	
+	/**
+	 * create the full screen 
+	 */
 	public void makeFullScreen(){
 		DisplayMode displaymode = findFirstCompatibleMode(getCompatibleDisplayModes());
 		
@@ -51,8 +54,13 @@ public class FullScreen extends JFrame{
 		screen.setBuffer(this.getBufferStrategy());
 		Input.getInput().addListeners(this);
 		Toolkit.getDefaultToolkit().sync();
+		
+		if(!screen.isRunning())
+			screen.start();
 	}
-	
+	/**
+	 * get Rid of the full screen window
+	 */
 	public void restoreScreen(){
    	 Window window = device.getFullScreenWindow();
    	 if(window!=null)
@@ -60,7 +68,10 @@ public class FullScreen extends JFrame{
    	 device.setFullScreenWindow(null);
     }
 	
-	
+	/**
+	 * get all compatible displaymodes 
+	 * @return DisplayMode[]
+	 */
 	public DisplayMode[] getCompatibleDisplayModes(){
 		return device.getDisplayModes();
 	}
@@ -75,6 +86,14 @@ public class FullScreen extends JFrame{
 			}
 		}
 		return null;
+	}
+	/**
+	 * get the size of the current full screen window
+	 * 
+	 * @return
+	 */
+	public Dimension getScreenSize(){
+		return device.getFullScreenWindow().getSize();
 	}
 	
 	public boolean displayModesMatch(DisplayMode mode1,DisplayMode mode2){

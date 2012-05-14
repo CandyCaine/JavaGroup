@@ -24,7 +24,7 @@ public class Game extends BasicGame{
 	@Override
 	public void update(int delta) {
 		if(Input.getInput().isKeyDown(KeyEvent.VK_A)){
-			createFullSCreen();
+			toggleFullScreen();
 		}
 		
 	}

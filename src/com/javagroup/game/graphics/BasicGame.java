@@ -40,10 +40,13 @@ public abstract class BasicGame implements Runnable{
 	
 	private long lastFPSUpdate = 0;
 	
+	private long lastFS = 0;
+	
 	
 	public BasicGame(){
 		size = new Dimension(640,480);
 		gamewindow = new GameWindow(this);
+		fullwindow = new FullScreen(this);
 	}
 	
 	
@@ -136,9 +139,10 @@ public abstract class BasicGame implements Runnable{
 
 			
 	   if(fullscreen){
-		
+		  fullwindow.restoreScreen();
 		  gamewindow.createWindow();
-		   
+		
+		  Input.getInput().resetKeys();
 		  fullscreen  = false;
 		   
 	   }
@@ -146,9 +150,27 @@ public abstract class BasicGame implements Runnable{
 		   
 	}
 	
+	public void toggleFullScreen(){
+		if(System.nanoTime() -lastFS >= 5000 * 1000000L){
+			if(fullscreen)
+				createWindow();
+			else
+				createFullSCreen();
+			lastFS = System.nanoTime();
+		}
+	
+		
+	}
+	
 	public void createFullSCreen(){
 		if(fullscreen && fullwindow!=null)
 			return;
+		
+		if(!isRunning()){
+			fullwindow.makeFullScreen();
+			fullscreen = true;
+		}
+		
 	   if(!fullscreen){
 		   
 		   fullwindow.makeFullScreen();
