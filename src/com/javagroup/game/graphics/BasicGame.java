@@ -1,7 +1,7 @@
 package com.javagroup.game.graphics;
 
-import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
@@ -25,11 +25,9 @@ public abstract class BasicGame implements Runnable {
 	private boolean fullscreen = false;
 
 	private GameWindow gamewindow;
-<<<<<<< HEAD
 
 	public BasicGame() {
 		size = new Dimension(640, 480);
-=======
 	
 	private String title = "Name Goes Here :)";
 	
@@ -40,9 +38,8 @@ public abstract class BasicGame implements Runnable {
 	private long lastFPSUpdate = 0;
 	
 	
-	public BasicGame(){
+	public BasicGame() {
 		size = new Dimension(640,480);
->>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 		gamewindow = new GameWindow(this);
 	}
 
@@ -62,7 +59,6 @@ public abstract class BasicGame implements Runnable {
 		initiate();
 
 		int delta = 0;
-<<<<<<< HEAD
 
 		long lastUpdate = System.nanoTime();
 
@@ -70,7 +66,6 @@ public abstract class BasicGame implements Runnable {
 
 			render();
 
-=======
 		
 		
 		long lastUpdate = System.nanoTime();
@@ -87,7 +82,6 @@ public abstract class BasicGame implements Runnable {
 			g.dispose();
 			buffer.show();
 			
->>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 			try {
 				Thread.sleep(6);
 			} catch (InterruptedException e) {
@@ -99,14 +93,11 @@ public abstract class BasicGame implements Runnable {
 			update(delta);
 
 			lastUpdate = System.nanoTime();
-<<<<<<< HEAD
-=======
 			
 			updateFPS();
 			
 			
 			
->>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 		}
 
 	}
@@ -123,9 +114,7 @@ public abstract class BasicGame implements Runnable {
 			buffer.show();
 		} while (buffer.contentsLost());
 	}
-<<<<<<< HEAD
 
-=======
 	
 	public void updateFPS(){
 		frames++;
@@ -138,7 +127,6 @@ public abstract class BasicGame implements Runnable {
 		
 	}
 	
->>>>>>> 7a1c93267e67320c2d8a0aa2c9426337d775727d
 	/**
 	 * Create a normal window with our game if game is not started , this will
 	 * start our game :)
