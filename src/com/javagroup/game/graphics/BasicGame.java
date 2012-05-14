@@ -28,6 +28,14 @@ public abstract class BasicGame implements Runnable{
 	
 	private GameWindow gamewindow;
 	
+	private String title = "Name Goes Here :)";
+	
+	private int frames = 0;
+	
+	private int fps = 0;
+	
+	private long lastFPSUpdate = 0;
+	
 	
 	public BasicGame(){
 		size = new Dimension(640,480);
@@ -54,6 +62,7 @@ public abstract class BasicGame implements Runnable{
 		
 		int delta = 0;
 		
+		
 		long lastUpdate = System.nanoTime();
 		
 		while(running){
@@ -61,6 +70,7 @@ public abstract class BasicGame implements Runnable{
 			Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
 			g.setColor(Color.black);
 			g.fillRect(0, 0, size.width, size.height);
+			gamewindow.setTitle(title + "   fps:"+ fps);
 			
 			render(g);
 			
@@ -79,11 +89,25 @@ public abstract class BasicGame implements Runnable{
 			
 			lastUpdate = System.nanoTime();
 			
+			updateFPS();
+			
 			
 			
 		}
 		
 	}
+	
+	public void updateFPS(){
+		frames++;
+		if(System.nanoTime() - lastFPSUpdate >= 1000000000L){
+			fps = frames;
+			frames = 0;
+			lastFPSUpdate = System.nanoTime();
+		}
+		
+		
+	}
+	
 	/**
 	 * Create a normal window with our game 
 	 * if game is not started , this will start our game :)
