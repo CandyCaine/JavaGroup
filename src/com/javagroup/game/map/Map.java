@@ -28,7 +28,7 @@ public class Map {
 	public void loadTiles() {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				tiles.add(new Tile(r.nextInt(2), (x * tileSize), y * tileSize));
+				tiles.add(new Tile(r.nextInt(3), (x * tileSize), y * tileSize));
 			}
 		}
 	}

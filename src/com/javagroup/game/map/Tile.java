@@ -17,6 +17,11 @@ public class Tile {
 		texture = Art.getTextureByID(id);
 	}
 	
+	public void setID(int id) {
+		this.id = id;
+		texture = Art.getTextureByID(id);
+	}
+	
 	public float getX() {
 		return x;
 	}
