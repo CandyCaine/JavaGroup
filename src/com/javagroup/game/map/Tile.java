@@ -5,10 +5,28 @@ import com.javagroup.game.graphics.image.Texture;
 
 public class Tile {
 
+	public static enum TileType {
+		Grass		(0),
+		Rock		(1),
+		Rocks		(2),
+		Pond		(3),
+		Mushroom	(4);
+		
+		private int id;
+		TileType(int id) {
+			this.id = id;
+		}
+		
+		public int getID() {
+			return id;
+		}
+	}
+	
 	protected float x;
 	protected float y;
 	protected int id;
 	private Texture texture;
+	private TileType type;
 	
 	public Tile(int id, float x, float y) {
 		this.id = id;

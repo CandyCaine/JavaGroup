@@ -1,21 +1,22 @@
 package com.javagroup.game.map;
 import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.Random;
 
 
 public class Map {
 
+	public static final float tileSize = 32;
+	public static final float chunkSize = 16;
+	
 	private String name;
-	private ArrayList<Tile> tiles;
+	private Tile[][] tiles;
 	private int width;
 	private int height;
-	private final int tileSize = 32;
 	private Random r = new Random();
 	
 	public Map(String name, int width, int height) {
 		this.name = name;
-		tiles = new ArrayList<Tile>();
+		tiles = new Tile[width][height];
 		this.width = width;
 		this.height = height;
 		loadTiles();
@@ -28,14 +29,29 @@ public class Map {
 	public void loadTiles() {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				tiles.add(new Tile(r.nextInt(4), (x * tileSize), y * tileSize));
+				tiles[x][y] = new Tile(r.nextInt(5), x * tileSize, y * tileSize);
+			}
+		}
+		
+		determineTileType();
+	}
+	
+	public void determineTileType() {
+		
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				Tile t = tiles[x][y];
+				
 			}
 		}
 	}
 	
 	public void render(Graphics g, float xOffset, float yOffset) {
-		for (int i = 0; i < tiles.size(); i++) {
-			g.drawImage(tiles.get(i).getTexture().getImage(), (int)(xOffset + tiles.get(i).getX()), (int)(yOffset + tiles.get(i).getY()), tileSize, tileSize, null);
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				g.drawImage(tiles[x][y].getTexture().getImage(), (int)(xOffset + tiles[x][y].getX()), (int)(yOffset + tiles[x][y].getY()), (int)tileSize, (int)tileSize, null);
+			}
 		}
+		
 	}
 }

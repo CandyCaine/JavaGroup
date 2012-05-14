@@ -20,22 +20,21 @@ public class Game extends BasicGame{
 
 	@Override
 	public void render(Graphics2D g) {
-		testMap.render(g, x, y);
+		testMap.render(g, Math.round(x), Math.round(y));
 	}
 
 	@Override
 	public void update(int delta) {
-		if(Input.getInput().isKeyDown(KeyEvent.VK_A)){
-<<<<<<< HEAD
+		if (Input.getInput().isKeyDown(KeyEvent.VK_F)) {
 			toggleFullScreen();
-=======
-			System.out.println("lol");
+		}
+		
+		if(Input.getInput().isKeyDown(KeyEvent.VK_A)){
 			x -= 0.1F * delta;
 		}
 		
 		if (Input.getInput().isKeyDown(KeyEvent.VK_D)) {
 			x += 0.1F * delta;
->>>>>>> 42e2a908b0ccb2f2d20356b5cc00c5f90c95b61b
 		}
 		
 	}
