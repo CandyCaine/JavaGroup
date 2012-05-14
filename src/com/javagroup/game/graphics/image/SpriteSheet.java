@@ -52,7 +52,7 @@ public class SpriteSheet {
 	 * @return Returns a subimage specified by the parameters
 	 */
 	public BufferedImage getImage(int x, int y, int width, int height) {
-		BufferedImage image = Art.toCompatibleImage(sheet.getSubimage(x, y, width, height));
+		BufferedImage image = Art.toCompatibleBufferedImage(sheet.getSubimage(x, y, width, height));
 		return image;
 	}
 	
@@ -65,7 +65,7 @@ public class SpriteSheet {
 		int cellX = cell % cellSize;
 		int cellY = cell / cellSize;
 		
-		BufferedImage image = Art.toCompatibleImage(sheet.getSubimage(cellX * cellSize, cellY * cellSize, cellSize, cellSize));
+		BufferedImage image = Art.toCompatibleBufferedImage(sheet.getSubimage(cellX * cellSize, cellY * cellSize, cellSize, cellSize));
 		return image;
 	}
 	
