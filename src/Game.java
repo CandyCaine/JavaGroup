@@ -7,9 +7,8 @@ import com.javagroup.game.graphics.animation.Animation;
 import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.graphics.image.Font;
 import com.javagroup.game.graphics.image.SpriteSheet;
-import com.javagroup.game.graphics.particle.Emitter;
-import com.javagroup.game.graphics.particle.ParticleSystem;
-import com.javagroup.game.graphics.particle.emitter.BloodEmitter;
+import com.javagroup.game.graphics.particle.Effect;
+import com.javagroup.game.graphics.particle.Effect.EffectType;
 import com.javagroup.game.input.Input;
 import com.javagroup.game.map.Map;
 
@@ -19,16 +18,17 @@ public class Game extends BasicGame {
 	float x = 450;
 	float y;
 
-	ParticleSystem particleSystem;
-	Emitter emitter, emitter2, emitter3;
 	BufferedImage testFont;
 	Animation testanim;
 	SpriteSheet testSheet;
+	
+	private Effect effects;
 
 	@Override
 	public void initiate() {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
+		effects = new Effect();
 		
 		//animation test
 		{
@@ -43,11 +43,7 @@ public class Game extends BasicGame {
 		// Testing
 		{
 			testMap = new Map("Test", 32, 32);
-			particleSystem = new ParticleSystem();
-			emitter = new BloodEmitter(200, 0.5F, 10);
-			emitter.setLocation(-300, 250);
-			particleSystem.addEmitter(emitter);
-			
+			Effect.playEffect(EffectType.BloodEffect, 100, 200);
 		}
 
 	}
@@ -55,9 +51,9 @@ public class Game extends BasicGame {
 	@Override
 	public void render(Graphics2D g) {
 		testMap.render(g, Math.round(x), Math.round(y));
-		particleSystem.render(g);
 		g.drawImage(testFont, Math.round(x) + (-350), 100, testFont.getWidth(), testFont.getHeight(), null);
 		g.drawImage(testanim.getImage(),30,30,null);
+		effects.render(g);
 	}
 
 	@Override
@@ -74,8 +70,8 @@ public class Game extends BasicGame {
 			x += 0.1F * delta;
 		}
 
-		particleSystem.update(x, y);
 		testanim.update();
+		effects.update(x, y);
 
 	}
 
@@ -83,5 +79,4 @@ public class Game extends BasicGame {
 		Game game = new Game();
 		game.createWindow();
 	}
-
 }
