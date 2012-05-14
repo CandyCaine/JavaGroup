@@ -29,7 +29,7 @@ public class Emitter {
 	public Emitter(long life, float speed, int maxParticles) {
 		particles = new ArrayList<Particle>();
 		r = new Random();
-
+		startTime = System.currentTimeMillis();
 		particleLife = life;
 		this.speed = speed;
 		this.maxParticles = maxParticles;
@@ -45,6 +45,14 @@ public class Emitter {
 		return particleLife;
 	}
 
+	public void setEmitterLife(long life) {
+		this.life = life;
+	}
+	
+	public long getEmitterLife() {
+		return life;
+	}
+	
 	public float getSpeed() {
 		return speed;
 	}
@@ -62,6 +70,14 @@ public class Emitter {
 		return hasImage;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
 	public void update(float xOffset, float yOffset) {
 			for (int i = 0; i < particles.size(); i++) {
 				particles.get(i).update(this);
@@ -73,6 +89,10 @@ public class Emitter {
 
 			if (particles.size() < maxParticles) {
 				particles.add(new Particle(xOffset + x, yOffset + y, r.nextInt(360), r.nextInt(360)));
+			}
+		
+			if (System.currentTimeMillis() > startTime + life) {
+				setActive(false);
 			}
 	}
 
