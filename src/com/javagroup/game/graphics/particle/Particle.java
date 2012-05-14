@@ -28,9 +28,9 @@ public class Particle {
 		return alive;
 	}
 
-	public void update(Emitter emitter) {
-		x += emitter.getSpeed() * Math.cos(xDir);
-		y += emitter.getSpeed() * Math.sin(yDir);
+	public void update(Emitter emitter, float xOffset, float yOffset) {
+		x += (emitter.getSpeed() * Math.cos(xDir));
+		y += (emitter.getSpeed() * Math.sin(yDir));
 		
 		if (System.currentTimeMillis() > birthTime + emitter.getLife()) {
 			alive = false;

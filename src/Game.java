@@ -44,6 +44,7 @@ public class Game extends BasicGame {
 		{
 			testMap = new Map("Test", 32, 32);
 			Effect.playEffect(EffectType.BloodEffect, 100, 200);
+			Effect.genericParticleEffect();
 		}
 
 	}
