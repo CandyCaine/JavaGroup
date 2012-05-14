@@ -8,6 +8,8 @@ import java.awt.Window;
 
 import javax.swing.JFrame;
 
+import com.javagroup.game.input.Input;
+
 public class FullScreen extends JFrame{
 	private static final long serialVersionUID = 1L;
 
@@ -47,8 +49,7 @@ public class FullScreen extends JFrame{
 		}
 		this.createBufferStrategy(2);
 		screen.setBuffer(this.getBufferStrategy());
-		screen.getInputManager().addListener(this);
-		
+		Input.getInput().addListeners(this);
 		Toolkit.getDefaultToolkit().sync();
 	}
 	

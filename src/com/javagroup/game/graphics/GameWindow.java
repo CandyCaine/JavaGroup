@@ -5,6 +5,8 @@ import java.awt.Canvas;
 
 import javax.swing.JFrame;
 
+import com.javagroup.game.input.Input;
+
 
 public class GameWindow extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -43,7 +45,7 @@ public class GameWindow extends JFrame{
 	public void createWindow(){
 		screen.setBuffer(canvas.getBufferStrategy());
 		this.setVisible(true);
-		
+		Input.getInput().addListeners(canvas);
 		
 		if(!screen.isRunning())
 			screen.start();

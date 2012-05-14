@@ -1,8 +1,13 @@
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 
 import com.javagroup.game.graphics.BasicGame;
+<<<<<<< HEAD
 import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.map.Map;
+=======
+import com.javagroup.game.input.Input;
+>>>>>>> 06e39b4c5ea5ec8ad824aafe574006ebf66953af
 
 public class Game extends BasicGame {
 
@@ -21,6 +26,12 @@ public class Game extends BasicGame {
 
 	@Override
 	public void update(int delta) {
+<<<<<<< HEAD
+=======
+		if(Input.getInput().isKeyDown(KeyEvent.VK_A)){
+			System.out.println("lol");
+		}
+>>>>>>> 06e39b4c5ea5ec8ad824aafe574006ebf66953af
 		
 	}
 	
