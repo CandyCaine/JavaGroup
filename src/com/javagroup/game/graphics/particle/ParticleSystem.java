@@ -22,6 +22,9 @@ public class ParticleSystem {
 	public void update(float xOffset, float yOffset) {
 		for (int i = 0; i < emitters.size(); i++) {
 			emitters.get(i).update(xOffset, yOffset);
+			if (!emitters.get(i).isActive()) {
+				emitters.remove(i);
+			}
 		}
 	}
 
