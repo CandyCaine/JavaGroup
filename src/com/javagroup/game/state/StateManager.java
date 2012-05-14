@@ -10,7 +10,6 @@ public class StateManager {
 	private ArrayList<GameState> states;
 	
 	public StateManager() {
-		
 	}
 	
 	public GameState getCurrentState() {
