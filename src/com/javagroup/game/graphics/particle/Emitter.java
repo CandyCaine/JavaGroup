@@ -62,7 +62,7 @@ public class Emitter {
 		return hasImage;
 	}
 
-	public void update() {
+	public void update(float xOffset, float yOffset) {
 			for (int i = 0; i < particles.size(); i++) {
 				particles.get(i).update(this);
 
@@ -72,7 +72,7 @@ public class Emitter {
 			}
 
 			if (particles.size() < maxParticles) {
-				particles.add(new Particle(x, y, r.nextInt(360), r.nextInt(360)));
+				particles.add(new Particle(xOffset + x, yOffset + y, r.nextInt(360), r.nextInt(360)));
 			}
 	}
 

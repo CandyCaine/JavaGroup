@@ -19,9 +19,9 @@ public class ParticleSystem {
 		emitters.remove(emitter);
 	}
 
-	public void update() {
+	public void update(float xOffset, float yOffset) {
 		for (int i = 0; i < emitters.size(); i++) {
-			emitters.get(i).update();
+			emitters.get(i).update(xOffset, yOffset);
 		}
 	}
 
