@@ -3,6 +3,7 @@ package com.javagroup.game.graphics;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 
 import com.javagroup.game.input.Input;
@@ -15,8 +16,8 @@ import com.javagroup.game.input.Input;
  *
  */
 
+@SuppressWarnings("unused")
 public abstract class BasicGame implements Runnable{
-	
 	
 	private BufferStrategy buffer;
 	

@@ -2,7 +2,7 @@ package com.javagroup.game.state;
 
 import java.awt.Graphics;
 
-public abstract class GameState {
+public abstract class GameState{
 
 	
 	public static enum StateType {
