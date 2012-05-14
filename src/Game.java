@@ -7,6 +7,8 @@ import com.javagroup.game.graphics.BasicGame;
 import com.javagroup.game.graphics.entity.testEnt;
 import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.graphics.image.Font;
+import com.javagroup.game.graphics.particle.Effect;
+import com.javagroup.game.graphics.particle.Effect.EffectType;
 import com.javagroup.game.graphics.particle.Emitter;
 import com.javagroup.game.graphics.particle.ParticleSystem;
 import com.javagroup.game.graphics.particle.emitter.BloodEmitter;
@@ -30,23 +32,24 @@ public class Game extends BasicGame {
 	public void initiate() {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
-		testent = new testEnt();
+		
 		
 
 		
 		// Testing
 		{
+			testent = new testEnt();
 			testMap = new Map("Test", 32, 32);
-<<<<<<< HEAD
+
 			particleSystem = new ParticleSystem();
 			emitter = new BloodEmitter(200, 0.5F, 10);
 			emitter.setLocation(-300, 250);
 			particleSystem.addEmitter(emitter);
 			
-=======
+
 			Effect.playEffect(EffectType.BloodEffect, 100, 200);
 			Effect.genericParticleEffect();
->>>>>>> 31db4cae2bd056c11b642f1356514257e5c8bfaa
+
 		}
 
 	}
