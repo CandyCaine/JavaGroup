@@ -12,7 +12,13 @@ public class Font {
 	private final int fontSize = 16;
 	private String characters;
 	
-	public Font(){ 
+	private static Font xfont = new Font();
+	
+	public static Font getFont(){
+		return xfont;
+	}
+	
+	private Font(){ 
 		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		try {
 			font = ImageIO.read(Font.class.getResource("/font.png"));

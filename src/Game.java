@@ -21,7 +21,6 @@ public class Game extends BasicGame {
 
 	ParticleSystem particleSystem;
 	Emitter emitter, emitter2, emitter3;
-	Font font = new Font();
 	BufferedImage testFont;
 	Animation testanim;
 	SpriteSheet testSheet;
@@ -29,7 +28,7 @@ public class Game extends BasicGame {
 	@Override
 	public void initiate() {
 		Art.init();
-		testFont = font.getLetters("PARTICLES");
+		testFont = Font.getFont().getLetters("PARTICLES");
 		
 		//animation test
 		{
