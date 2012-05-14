@@ -12,12 +12,15 @@ import java.awt.event.MouseMotionListener;
 
 public class Input implements KeyListener, MouseListener, MouseMotionListener, FocusListener {
 
-	private static boolean[] keys;
-	private static boolean leftMouseButton;
-	private static boolean middleMouseButton;
-	private static boolean rightMouseButton;
-	private static boolean focus;
-	private static Point mousePos;
+	private  boolean[] keys;
+	private  boolean leftMouseButton;
+	private  boolean middleMouseButton;
+	private  boolean rightMouseButton;
+	private  boolean focus;
+	private  Point mousePos;
+	
+	private static Input input = new Input();
+	
 	
 	public static enum MouseButton {
 		LEFT_MOUSE_BUTTON,
@@ -26,20 +29,27 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, F
 		ANY_MOUSE_BUTTON;
 	}
 	
-	public Input() {
+	public static Input getInput(){
+		return input;
+	}
+	
+	private Input() {
 		keys = new boolean[1000];
 		mousePos = new Point(0, 0);
 	}
 	
-	public static void addListeners(Component e){
-		
+	public void addListeners(Component e){
+		e.addKeyListener(this);
+		e.addFocusListener(this);
+		e.addMouseListener(this);
+		e.addMouseMotionListener(this);
 	}
 	
-	public static boolean isKeyDown(int key) {
+	public boolean isKeyDown(int key) {
 		return keys[key];
 	}
 	
-	public static boolean isMouseDown(MouseButton button) {
+	public boolean isMouseDown(MouseButton button) {
 		if (button == MouseButton.LEFT_MOUSE_BUTTON) {
 			return leftMouseButton;
 		} else if (button == MouseButton.MIDDLE_MOUSE_BUTTON) {
@@ -54,19 +64,19 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, F
 		return false;
 	}
 	
-	public static boolean hasFocus() {
+	public boolean hasFocus() {
 		return focus;
 	}
 	
-	public static Point getMousePos() {
+	public Point getMousePos() {
 		return mousePos;
 	}
 	
-	public static int getMouseX() {
+	public int getMouseX() {
 		return mousePos.x;
 	}
 	
-	public static int getMouseY() {
+	public int getMouseY() {
 		return mousePos.y;
 	}
 	

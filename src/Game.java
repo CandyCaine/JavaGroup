@@ -1,6 +1,8 @@
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 
-import com.javagroup.game.graphics.*;
+import com.javagroup.game.graphics.BasicGame;
+import com.javagroup.game.input.Input;
 
 public class Game extends BasicGame{
 
@@ -18,7 +20,9 @@ public class Game extends BasicGame{
 
 	@Override
 	public void update(int delta) {
-		// TODO Auto-generated method stub
+		if(Input.getInput().isKeyDown(KeyEvent.VK_A)){
+			System.out.println("lol");
+		}
 		
 	}
 	

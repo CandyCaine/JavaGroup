@@ -67,15 +67,24 @@ public abstract class BasicGame implements Runnable{
 		
 		while(running){
 			
-			Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
-			g.setColor(Color.black);
-			g.fillRect(0, 0, size.width, size.height);
-			gamewindow.setTitle(title + "   fps:"+ fps);
+			do{
+				do{
+					Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
+					g.setColor(Color.black);
+					g.fillRect(0, 0, size.width, size.height);
+					gamewindow.setTitle(title + "   fps:"+ fps);
 			
-			render(g);
+					render(g);
 			
-			g.dispose();
-			buffer.show();
+					g.dispose();
+					buffer.show();
+					
+				}while(buffer.contentsRestored());
+				
+				
+			}while(buffer.contentsLost());
+			
+			
 			
 			try {
 				Thread.sleep(6);
@@ -83,7 +92,7 @@ public abstract class BasicGame implements Runnable{
 				e.printStackTrace();
 			}
 			
-			delta =(int) (( System.nanoTime() - lastUpdate) /1000000);
+			delta =(int) (( System.nanoTime() - lastUpdate) /1000000L);
 			
 			update(delta);
 			
