@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 5 elements to &apos;JavaGroup/src/com.javagroup.game.graphics&apos;&#x0D;&#x0A;- Original project: &apos;Collab&apos;&#x0D;&#x0A;- Destination element: &apos;JavaGroup/src/com.javagroup.game.graphics&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Texture.java&#x0D;&#x0A;     Tile.java&#x0D;&#x0A;     Map.java&#x0D;&#x0A;     Art.java&#x0D;&#x0A;     SpriteSheet.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="=JavaGroup/src&lt;com.javagroup.game.graphics" element1="/src&lt;{Texture.java" element2="/src&lt;{Tile.java" element3="/src&lt;{Map.java" element4="/src&lt;{Art.java" element5="/src&lt;{SpriteSheet.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1336967945399" units="5" version="1.0"/>
+</session>

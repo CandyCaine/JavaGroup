@@ -1,0 +1,12 @@
+import java.awt.image.BufferedImage;
+
+
+public class Texture {
+
+	private BufferedImage image;
+	private int id;
+	
+	public Texture(int id) {
+		
+	}
+}

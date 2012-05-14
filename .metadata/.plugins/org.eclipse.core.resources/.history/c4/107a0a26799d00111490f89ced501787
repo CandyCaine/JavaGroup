@@ -1,0 +1,38 @@
+import java.awt.Graphics;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
+import java.awt.Transparency;
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+
+
+public class Art {
+	
+	private static HashMap<Integer, Texture> tileImages = new HashMap<Integer, Texture>();
+
+	public static GraphicsConfiguration getConfig() {
+		GraphicsConfiguration config = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+		return config;
+	}
+	
+	public static BufferedImage createCompatibleImage(int width, int height, int transparency) {
+		BufferedImage image = getConfig().createCompatibleImage(width, height, transparency);
+		return image;
+	}
+	
+	public static BufferedImage toCompatibleImage(BufferedImage src) {
+		BufferedImage image = createCompatibleImage(src.getWidth(), src.getHeight(), Transparency.TRANSLUCENT);
+		Graphics g = image.getGraphics();
+		g.drawImage(src, 0, 0, src.getWidth(), src.getHeight(), null);
+		g.dispose();
+		return image;
+	}
+	
+	public static Texture getTextureByID(int id) {
+		if (tileImages.containsKey(id)) {
+			return tileImages.get(id);
+		} else {
+			return null;
+		}
+	}
+}
