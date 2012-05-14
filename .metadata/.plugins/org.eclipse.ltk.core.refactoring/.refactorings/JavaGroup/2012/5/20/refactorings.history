@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;src.com.javagroup.game.graphics&apos; to &apos;com.javagroup.game.graphics&apos;&#x0D;&#x0A;- Original project: &apos;JavaGroup&apos;&#x0D;&#x0A;- Original element: &apos;JavaGroup/src/src.com.javagroup.game.graphics&apos;&#x0D;&#x0A;- Renamed element: &apos;JavaGroup/src/com.javagroup.game.graphics&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;src.com.javagroup.game.graphics&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;src.com.javagroup.game.graphics" name="com.javagroup.game.graphics" qualified="false" references="true" stamp="1336967899670" textual="false" version="1.0"/>
-</session>

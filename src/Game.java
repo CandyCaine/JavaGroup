@@ -2,20 +2,23 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import com.javagroup.game.graphics.BasicGame;
+import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.input.Input;
+import com.javagroup.game.map.Map;
 
 public class Game extends BasicGame{
 
+	Map testMap;
+	
 	@Override
 	public void initiate() {
-		// TODO Auto-generated method stub
-		
+		Art.init();
+		testMap = new Map("Test", 32, 32);
 	}
 
 	@Override
 	public void render(Graphics2D g) {
-		// TODO Auto-generated method stub
-		
+		testMap.render(g, 0, 0);
 	}
 
 	@Override

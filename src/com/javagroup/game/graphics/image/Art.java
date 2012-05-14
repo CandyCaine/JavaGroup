@@ -13,7 +13,7 @@ public class Art {
 	private static SpriteSheet tileSheet;
 
 	public static void init() {
-		
+		tileSheet= new SpriteSheet("/tiles.png", 32, 0xFFFF00FF);
 	}
 	
 	/**
