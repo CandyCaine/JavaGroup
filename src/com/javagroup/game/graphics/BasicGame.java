@@ -90,11 +90,9 @@ public abstract class BasicGame implements Runnable{
 				
 				
 			}while(buffer.contentsLost());
-			
-			
-			
+
 			try {
-				Thread.sleep(6);
+				Thread.sleep(4);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -106,13 +104,13 @@ public abstract class BasicGame implements Runnable{
 			lastUpdate = System.nanoTime();
 			
 			updateFPS();
-			
-			
-			
+
 		}
 		
 	}
-	
+	/**
+	 * Update the frames per second 
+	 */
 	public void updateFPS(){
 		frames++;
 		if(System.nanoTime() - lastFPSUpdate >= 1000000000L){
@@ -135,9 +133,7 @@ public abstract class BasicGame implements Runnable{
 			fullscreen = false;
 		}
 		 
-			
 
-			
 	   if(fullscreen){
 		  fullwindow.restoreScreen();
 		  gamewindow.createWindow();

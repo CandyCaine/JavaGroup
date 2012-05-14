@@ -34,6 +34,17 @@ public class SpriteSheet {
 		}
 	}
 	
+	public SpriteSheet(String path, int cellSize) {
+		this.cellSize = cellSize;
+		try {
+			sheet = ImageIO.read(SpriteSheet.class.getResource(path));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+	
 	/**
 	 * 
 	 * @return Returns the full SpriteSheet image

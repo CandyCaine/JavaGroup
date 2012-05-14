@@ -54,6 +54,7 @@ public class GameWindow extends JFrame{
 	}
 	
 	public void hideWindow(){
+		Input.getInput().removeListeners(canvas);
 		this.setVisible(false);
 	}
 	

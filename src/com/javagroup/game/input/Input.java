@@ -51,6 +51,13 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, F
 		e.addMouseMotionListener(this);
 	}
 	
+	public void removeListeners(Component e){
+		e.removeKeyListener(this);
+		e.removeFocusListener(this);
+		e.removeMouseListener(this);
+		e.removeMouseMotionListener(this);
+	}
+	
 	public boolean isKeyDown(int key) {
 		return keys[key];
 	}
