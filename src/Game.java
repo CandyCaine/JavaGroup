@@ -9,6 +9,8 @@ import com.javagroup.game.map.Map;
 public class Game extends BasicGame{
 
 	Map testMap;
+	float x;
+	float y;
 	
 	@Override
 	public void initiate() {
@@ -18,13 +20,18 @@ public class Game extends BasicGame{
 
 	@Override
 	public void render(Graphics2D g) {
-		testMap.render(g, 0, 0);
+		testMap.render(g, x, y);
 	}
 
 	@Override
 	public void update(int delta) {
 		if(Input.getInput().isKeyDown(KeyEvent.VK_A)){
 			System.out.println("lol");
+			x -= 0.1F * delta;
+		}
+		
+		if (Input.getInput().isKeyDown(KeyEvent.VK_D)) {
+			x += 0.1F * delta;
 		}
 		
 	}

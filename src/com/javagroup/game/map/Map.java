@@ -28,14 +28,14 @@ public class Map {
 	public void loadTiles() {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				tiles.add(new Tile(r.nextInt(3), (x * tileSize), y * tileSize));
+				tiles.add(new Tile(r.nextInt(4), (x * tileSize), y * tileSize));
 			}
 		}
 	}
 	
 	public void render(Graphics g, float xOffset, float yOffset) {
 		for (int i = 0; i < tiles.size(); i++) {
-			g.drawImage(tiles.get(i).getTexture().getImage(), (int)tiles.get(i).getX(), (int)tiles.get(i).getY(), tileSize, tileSize, null);
+			g.drawImage(tiles.get(i).getTexture().getImage(), (int)(xOffset + tiles.get(i).getX()), (int)(yOffset + tiles.get(i).getY()), tileSize, tileSize, null);
 		}
 	}
 }

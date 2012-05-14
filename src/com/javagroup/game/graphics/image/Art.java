@@ -2,6 +2,7 @@ package com.javagroup.game.graphics.image;
 import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsEnvironment;
+import java.awt.Image;
 import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
@@ -42,8 +43,16 @@ public class Art {
 	 * @param src Image to be converted
 	 * @return Returns the converted image
 	 */
-	public static BufferedImage toCompatibleImage(BufferedImage src) {
+	public static BufferedImage toCompatibleBufferedImage(BufferedImage src) {
 		BufferedImage image = createCompatibleImage(src.getWidth(), src.getHeight(), Transparency.TRANSLUCENT);
+		Graphics g = image.getGraphics();
+		g.drawImage(src, 0, 0, src.getWidth(), src.getHeight(), null);
+		g.dispose();
+		return image;
+	}
+	
+	public static Image toCompatibleImage(BufferedImage src) {
+		Image image = createCompatibleImage(src.getWidth(), src.getHeight(), Transparency.TRANSLUCENT);
 		Graphics g = image.getGraphics();
 		g.drawImage(src, 0, 0, src.getWidth(), src.getHeight(), null);
 		g.dispose();
