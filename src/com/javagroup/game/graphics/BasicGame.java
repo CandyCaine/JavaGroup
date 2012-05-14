@@ -1,9 +1,11 @@
 package com.javagroup.game.graphics;
 
-import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
+
+import com.javagroup.game.input.Input;
 
 
 /**
@@ -27,12 +29,8 @@ public abstract class BasicGame implements Runnable{
 	private boolean fullscreen = false;
 	
 	private GameWindow gamewindow;
-<<<<<<< HEAD
-
-	public BasicGame() {
-		size = new Dimension(640, 480);
-=======
->>>>>>> 06e39b4c5ea5ec8ad824aafe574006ebf66953af
+	
+	private FullScreen fullwindow;
 	
 	private String title = "Name Goes Here :)";
 	
@@ -43,7 +41,7 @@ public abstract class BasicGame implements Runnable{
 	private long lastFPSUpdate = 0;
 	
 	
-	public BasicGame() {
+	public BasicGame(){
 		size = new Dimension(640,480);
 		gamewindow = new GameWindow(this);
 	}
@@ -67,16 +65,6 @@ public abstract class BasicGame implements Runnable{
 		
 		
 		int delta = 0;
-<<<<<<< HEAD
-
-		long lastUpdate = System.nanoTime();
-
-		while (running) {
-
-			render();
-
-=======
->>>>>>> 06e39b4c5ea5ec8ad824aafe574006ebf66953af
 		
 		
 		long lastUpdate = System.nanoTime();
@@ -121,10 +109,6 @@ public abstract class BasicGame implements Runnable{
 		}
 		
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 06e39b4c5ea5ec8ad824aafe574006ebf66953af
 	
 	public void updateFPS(){
 		frames++;
@@ -160,6 +144,21 @@ public abstract class BasicGame implements Runnable{
 	   }
 	   
 		   
+	}
+	
+	public void createFullSCreen(){
+		if(fullscreen && fullwindow!=null)
+			return;
+	   if(!fullscreen){
+		   
+		   fullwindow.makeFullScreen();
+		   
+		   gamewindow.hideWindow();
+		   Input.getInput().resetKeys();
+		  
+		   fullscreen = true;
+		   
+	   }
 	}
 	
 	/**
