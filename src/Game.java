@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import com.javagroup.game.graphics.BasicGame;
-import com.javagroup.game.graphics.entity.testEnt;
 import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.graphics.image.Font;
 import com.javagroup.game.graphics.particle.Effect;
@@ -59,11 +58,18 @@ public class Game extends BasicGame {
 		}
 
 		if (Input.getInput().isKeyDown(KeyEvent.VK_A)) {
-			x -= 0.1F * delta;
+			x += 0.1F * delta;
 		}
 
 		if (Input.getInput().isKeyDown(KeyEvent.VK_D)) {
-			x += 0.1F * delta;
+			x -= 0.1F * delta;
+		}
+		if (Input.getInput().isKeyDown(KeyEvent.VK_W)) {
+			y += 0.1F * delta;
+		}
+
+		if (Input.getInput().isKeyDown(KeyEvent.VK_S)) {
+			y -= 0.1F * delta;
 		}
 
 		testent.update(delta);

@@ -1,10 +1,10 @@
-package com.javagroup.game.graphics.entity;
+package com.javagroup.game.entity;
 
 import java.awt.Graphics2D;
 
 public abstract class Entity implements GameObject{
 	
-	private float x;
+	private float x;//x and y
 	
 	private float y;
 	

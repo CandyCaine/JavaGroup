@@ -82,4 +82,8 @@ public class SpriteSheet {
 		return image;
 	}
 	
+	public int getCellSize(){
+		return cellSize;
+	}
+	
 }

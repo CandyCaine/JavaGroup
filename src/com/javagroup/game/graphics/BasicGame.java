@@ -67,10 +67,8 @@ public abstract class BasicGame implements Runnable{
 	public void run() {
 		initiate();
 		
-		
 		int delta = 0;
-		
-		
+
 		long lastUpdate = System.nanoTime();
 		
 		while(running){

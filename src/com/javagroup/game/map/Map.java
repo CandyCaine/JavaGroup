@@ -52,6 +52,5 @@ public class Map {
 				g.drawImage(tiles[x][y].getTexture().getImage(), (int)(xOffset + tiles[x][y].getX()), (int)(yOffset + tiles[x][y].getY()), (int)tileSize, (int)tileSize, null);
 			}
 		}
-		
 	}
 }
