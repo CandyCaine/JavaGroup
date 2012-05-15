@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.javagroup.game.graphics.BasicGame;
 import com.javagroup.game.graphics.image.Art;
-import com.javagroup.game.map.Tile.TileType;
 
 
 public class Map {

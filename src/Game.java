@@ -23,7 +23,7 @@ public class Game extends BasicGame {
 	ParticleSystem particleSystem;
 	Emitter emitter, emitter2, emitter3;
 	Font font = new Font();
-	BufferedImage testFont;
+	BufferedImage testFont,testFont2;
 	Sound sound ;
 
 
@@ -35,16 +35,17 @@ public class Game extends BasicGame {
 	public void initiate() {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
+		testFont2 = Font.getFont().getLetters("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
 		
-		sound = new Sound("/echelonfadeout.wav");
+		sound = new Sound("/TheAdventureBegins8-bitremix.ogg");
 		sound.load();
-		sound.setGain(1.0f);
+		sound.setGain(.6f);
 		sound.loop();
 
 		// Testing
 		{
 			testent = new testEnt();
-			testMap = new Map("Test",200, 200);
+			testMap = new Map("Test",400, 400);
 
 			particleSystem = new ParticleSystem();
 			emitter = new Emitter(1000, 2.5F, 100);
@@ -75,6 +76,7 @@ public class Game extends BasicGame {
 		testMap.render(g, Math.round(x), Math.round(y));
 		particleSystem.render(g);
 		g.drawImage(testFont, Math.round(x) + (-350), (int) y, testFont.getWidth(), testFont.getHeight(), null);
+		g.drawImage(testFont2, Math.round(x) + (-600), (int) y, testFont.getWidth(), testFont.getHeight(), null);
 
 		testent.render(g);
 		Effect.getEffect().render(g);
