@@ -38,18 +38,22 @@ public class testEnt extends Entity{
 
 	@Override
 	public void update(int delta) {
-		
+		current.setPaused(true);
 		if(Input.getInput().isKeyDown(KeyEvent.VK_A)){
 			current = left;
+			current.setPaused(false);
 		}
 		if(Input.getInput().isKeyDown(KeyEvent.VK_D)){
 			current = right;
+			current.setPaused(false);
 		}
 		if(Input.getInput().isKeyDown(KeyEvent.VK_W)){
 			current = up;
+			current.setPaused(false);
 		}
 		if(Input.getInput().isKeyDown(KeyEvent.VK_S)){
 			current = down;
+			current.setPaused(false);
 		}
 		limb.update(delta);
 		current.update();

@@ -13,6 +13,7 @@ public class Animation implements Cloneable{
 	private boolean alive = false;
 	private boolean loop = false;
 	private long lastCheck = 0;
+	private boolean paused = false;
 	
 	public Animation(){
 		frames = new ArrayList<AnimationFrame>();
@@ -38,6 +39,10 @@ public class Animation implements Cloneable{
 	public boolean isLooped(){
 		return loop;
 	}
+	
+	public void setPaused(boolean paused){
+		this.paused = paused;
+	}
 
 	
 	public void loop(){
@@ -47,25 +52,27 @@ public class Animation implements Cloneable{
 	
 	public void update(){
 		if(isAlive()){
+			if(!paused){
+				int elapsedTime = (int)((System.nanoTime()-lastCheck)/1000000L);
+				if(frames.size() > 1){
+					animationTime+=elapsedTime;
 			
-			int elapsedTime = (int)((System.nanoTime()-lastCheck)/1000000L);
-			if(frames.size() > 1){
-				animationTime+=elapsedTime;
-			
-				if(animationTime >= totalDuration){
-					if(isLooped()){
-						animationTime = animationTime % totalDuration;
-						currentFrame = 0;
-					}else{
-						currentFrame = 0;
-						alive = false;
-					}
+					if(animationTime >= totalDuration){
+						if(isLooped()){
+							animationTime = animationTime % totalDuration;
+							currentFrame = 0;
+						}else{
+							currentFrame = 0;
+							alive = false;
+						}
 				
+					}
+			
+					if(animationTime > getFrame(currentFrame).endTime){
+						currentFrame++;
+					}
 				}
 			
-				if(animationTime > getFrame(currentFrame).endTime){
-					currentFrame++;
-				}
 			}
 			lastCheck = System.nanoTime();
 		}
