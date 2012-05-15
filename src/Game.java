@@ -17,7 +17,7 @@ import com.javagroup.game.sound.Sound;
 public class Game extends BasicGame {
 
 	Map testMap;
-	float x = 450;
+	float x = 0;
 	float y;
 
 	ParticleSystem particleSystem;
@@ -35,7 +35,8 @@ public class Game extends BasicGame {
 	public void initiate() {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
-		testFont2 = Font.getFont().getLetters("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+		
+		testFont2 = Font.getFont().getLetters("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"); //<----Gives a weird error
 		
 		sound = new Sound("/TheAdventureBegins8-bitremix.ogg");
 		sound.load();
