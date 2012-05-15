@@ -44,7 +44,7 @@ public class Game extends BasicGame {
 		// Testing
 		{
 			testent = new testEnt();
-			testMap = new Map("Test", 32, 32);
+			testMap = new Map("Test",200, 200);
 
 			particleSystem = new ParticleSystem();
 			emitter = new Emitter(1000, 2.5F, 100);

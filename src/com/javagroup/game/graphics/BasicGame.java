@@ -25,7 +25,7 @@ public abstract class BasicGame implements Runnable{
 	
 	private boolean running  = false;
 	
-	private Dimension size;
+	public static Dimension size = new Dimension(640,480);;
 	
 	private boolean fullscreen = false;
 	
@@ -45,7 +45,7 @@ public abstract class BasicGame implements Runnable{
 	
 	
 	public BasicGame(){
-		size = new Dimension(640,480);
+		
 		gamewindow = new GameWindow(this);
 		fullwindow = new FullScreen(this);
 	}
@@ -178,22 +178,6 @@ public abstract class BasicGame implements Runnable{
 	   }
 	}
 	
-	/**
-	 * Set the size of the screen 
-	 * 
-	 * @param size - Dimension
-	 */
-	public void setScreenSize(Dimension size){
-		this.size = size;
-	}
-	
-	/**
-	 * Gets the desired screen size (display mode w/o bit);
-	 * @return Dimension
-	 */
-	public Dimension getScreenSize(){
-		return size;
-	}
 	
 	/**
 	 * used to initiate the game

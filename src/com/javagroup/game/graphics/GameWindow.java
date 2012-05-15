@@ -20,7 +20,7 @@ public class GameWindow extends JFrame{
 	public GameWindow(BasicGame screen){
 		this.screen = screen;
 	    canvas = new Canvas();
-		canvas.setSize(screen.getScreenSize());
+		canvas.setSize(BasicGame.size);
 		canvas.setIgnoreRepaint(true);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

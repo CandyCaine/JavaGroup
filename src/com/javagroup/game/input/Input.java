@@ -101,6 +101,7 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, F
 	@Override
 	public void focusLost(FocusEvent e) {
 		focus = false;
+		resetKeys();
 	}
 
 	@Override

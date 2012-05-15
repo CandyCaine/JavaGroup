@@ -2,6 +2,8 @@ package com.javagroup.game.map;
 import java.awt.Graphics;
 import java.util.Random;
 
+import com.javagroup.game.graphics.BasicGame;
+import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.map.Tile.TileType;
 
 
@@ -99,9 +101,14 @@ public class Map {
 	public void render(Graphics g, float xOffset, float yOffset) {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
+				if(tiles[x][y].getY()+yOffset+Art.getTileSheet().getCellSize() < 0 || tiles[x][y].getY()+yOffset > BasicGame.size.height)
+					continue;
+				else if(tiles[x][y].getX()+xOffset+Art.getTileSheet().getCellSize() < 0 || tiles[x][y].getX()+xOffset > BasicGame.size.width)
+					continue;
 				g.drawImage(tiles[x][y].getTexture().getImage(), (int)(xOffset + tiles[x][y].getX()), (int)(yOffset + tiles[x][y].getY()), (int)tileSize, (int)tileSize, null);
 			}
 		}
 		
 	}
+	
 }
