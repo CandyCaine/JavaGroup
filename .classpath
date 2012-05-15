@@ -3,5 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="resource"/>
+	<classpathentry kind="lib" path="lib/Sound/EasyOgg/easyogg.jar"/>
+	<classpathentry kind="lib" path="lib/Sound/EasyOgg/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="lib/Sound/EasyOgg/jorbis-0.0.15.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

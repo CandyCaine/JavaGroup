@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import com.javagroup.game.entity.Entity;
+import com.javagroup.game.entity.Limb;
 import com.javagroup.game.graphics.animation.Animation;
 import com.javagroup.game.graphics.image.SpriteSheet;
 import com.javagroup.game.input.Input;
@@ -17,8 +18,11 @@ public class testEnt extends Entity{
 	private Animation current;
 	
 	private SpriteSheet testSheet;
+	
+	private Limb limb;
 
 	public testEnt(){
+		limb = new TestLimb();
 		testSheet = new SpriteSheet("/testSpriteSheet.png", 32);
 		createAnimations();
 		current = down;
@@ -29,6 +33,7 @@ public class testEnt extends Entity{
 	@Override
 	public void render(Graphics2D g) {
 		g.drawImage(current.getImage(),Math.round(getX()),Math.round(getY()),null);
+		limb.render(g, getX(), getY());
 	}
 
 	@Override
@@ -46,7 +51,7 @@ public class testEnt extends Entity{
 		if(Input.getInput().isKeyDown(KeyEvent.VK_S)){
 			current = down;
 		}
-		
+		limb.update(delta);
 		current.update();
 		
 	}

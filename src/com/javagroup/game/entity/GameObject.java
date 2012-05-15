@@ -8,13 +8,13 @@ public interface GameObject {
 	/**
 	 * gets the x position of the object
 	 * 
-	 * @return float
+	 * @return float x position
  	 */
 	public float getX();
 	/**
 	 * get the y position of the object
 	 * 
-	 * @return float
+	 * @return float y position
 	 */
 	public float getY();
 	

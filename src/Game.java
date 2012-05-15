@@ -1,18 +1,17 @@
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import org.newdawn.easyogg.OggClip;
 
 import com.javagroup.game.graphics.BasicGame;
-import com.javagroup.game.graphics.entity.testEnt;
 import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.graphics.image.Font;
-
-import com.javagroup.game.graphics.particle.Emitter;
-import com.javagroup.game.graphics.particle.ParticleSystem;
-
 import com.javagroup.game.graphics.particle.Effect;
 import com.javagroup.game.graphics.particle.Effect.EffectType;
-
+import com.javagroup.game.graphics.particle.Emitter;
+import com.javagroup.game.graphics.particle.ParticleSystem;
 import com.javagroup.game.input.Input;
 import com.javagroup.game.map.Map;
 
@@ -26,18 +25,26 @@ public class Game extends BasicGame {
 	Emitter emitter, emitter2, emitter3;
 	Font font = new Font();
 	BufferedImage testFont;
+	OggClip clip ;
 
 
 
 	testEnt testent;
 
 	
-	@Override
+
 	public void initiate() {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
 		
+		try {
+			clip = new OggClip(Game.class.getResourceAsStream("/TheAdventureBegins8-bitremix.ogg"));
+			clip.setGain(1.f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
+		clip.loop();
 
 		// Testing
 		{
@@ -59,8 +66,9 @@ public class Game extends BasicGame {
 			particleSystem.addEmitter(emitter3);
 
 
-			Effect.playEffect(EffectType.BloodEffect, 100, 200);
-			Effect.genericParticleEffect();
+			//Effect.playEffect(EffectType.BloodEffect, 100, 200);
+			//Effect.genericParticleEffect();
+			Effect.playEffect(EffectType.BloodEffect, 500, 50);
 
 
 		}
@@ -71,7 +79,7 @@ public class Game extends BasicGame {
 	public void render(Graphics2D g) {
 		testMap.render(g, Math.round(x), Math.round(y));
 		particleSystem.render(g);
-		g.drawImage(testFont, Math.round(x) + (-350), 100, testFont.getWidth(), testFont.getHeight(), null);
+		g.drawImage(testFont, Math.round(x) + (-350), (int) y, testFont.getWidth(), testFont.getHeight(), null);
 
 		testent.render(g);
 		Effect.getEffect().render(g);
@@ -105,6 +113,7 @@ public class Game extends BasicGame {
 
 		testent.update(delta);
 		Effect.getEffect().update(x, y);
+		Effect.getEffect().update(500, y);
 
 	}
 

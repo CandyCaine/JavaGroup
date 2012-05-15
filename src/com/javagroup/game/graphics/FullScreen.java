@@ -70,7 +70,7 @@ public class FullScreen extends JFrame{
 	
 	/**
 	 * get all compatible displaymodes 
-	 * @return DisplayMode[]
+	 * @return an array of compatible display modes
 	 */
 	public DisplayMode[] getCompatibleDisplayModes(){
 		return device.getDisplayModes();
@@ -90,7 +90,7 @@ public class FullScreen extends JFrame{
 	/**
 	 * get the size of the current full screen window
 	 * 
-	 * @return
+	 * @return thes dimension of the screen in fullscreen
 	 */
 	public Dimension getScreenSize(){
 		return device.getFullScreenWindow().getSize();
