@@ -8,14 +8,20 @@ import com.javagroup.game.graphics.particle.emitter.BloodEmitter;
 
 public class Effect {
 
+	private static Effect effect = new Effect();
+	
 	public static enum EffectType {
 		BloodEffect;
 	}
 	
 	private static ParticleSystem particleSystem;
 	
-	public Effect() {
+	private Effect() {
 		particleSystem = new ParticleSystem();
+	}
+	
+	public static Effect getEffect() {
+		return effect;
 	}
 	
 	public static void playEffect(EffectType type, float x, float y) {

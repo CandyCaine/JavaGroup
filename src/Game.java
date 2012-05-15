@@ -20,16 +20,12 @@ public class Game extends BasicGame {
 	BufferedImage testFont;
 	testEnt testent;
 
-	private Effect effect;
 	
-
 	@Override
 	public void initiate() {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
-		effect = new Effect();
 		
-
 		
 		// Testing
 		{
@@ -48,7 +44,7 @@ public class Game extends BasicGame {
 		testMap.render(g, Math.round(x), Math.round(y));
 		g.drawImage(testFont, Math.round(x) + (-350), 100, testFont.getWidth(), testFont.getHeight(), null);
 		testent.render(g);
-		effect.render(g);
+		Effect.getEffect().render(g);
 	}
 
 	@Override
@@ -73,7 +69,7 @@ public class Game extends BasicGame {
 		}
 
 		testent.update(delta);
-		effect.update(x, y);
+		Effect.getEffect().update(x, y);
 	}
 
 	public static void main(String[] args) {

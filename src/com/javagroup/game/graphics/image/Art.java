@@ -7,7 +7,6 @@ import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
-
 public class Art {
 	
 	private static HashMap<Integer, Texture> textures = new HashMap<Integer, Texture>();
