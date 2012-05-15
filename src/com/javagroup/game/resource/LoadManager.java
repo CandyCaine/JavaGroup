@@ -57,7 +57,7 @@ public class LoadManager {
 	/**
 	 * Gets the percentage of how many items have been loaded
 	 * 
-	 * @return double
+	 * @return double needs to be formated accordingly
 	 */
 	public double getLoadPercentage(){
 		percentage = loaded/tobeLoaded;

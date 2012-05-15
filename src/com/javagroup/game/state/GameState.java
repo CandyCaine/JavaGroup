@@ -1,6 +1,6 @@
 package com.javagroup.game.state;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public abstract class GameState{
 
@@ -38,5 +38,5 @@ public abstract class GameState{
 	
 	public abstract void update(int delta);
 	
-	public abstract void render(Graphics g);
+	public abstract void render(Graphics2D g);
 }

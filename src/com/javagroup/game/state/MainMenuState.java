@@ -1,6 +1,7 @@
 package com.javagroup.game.state;
 
-import java.awt.Graphics;
+
+import java.awt.Graphics2D;
 
 public class MainMenuState extends GameState {
 
@@ -16,7 +17,7 @@ public class MainMenuState extends GameState {
 	}
 
 	@Override
-	public void render(Graphics g) {
+	public void render(Graphics2D g) {
 		// TODO Auto-generated method stub
 		
 	}

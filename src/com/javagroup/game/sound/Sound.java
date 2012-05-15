@@ -33,6 +33,8 @@ public class Sound implements Resource{
 	
 	private String file;//name of the file
 	
+	private float sampledgain = 100;
+	
 	/**
 	 * Constructor of the sound will take in 
 	 * 
@@ -78,24 +80,86 @@ public class Sound implements Resource{
 	 * Plays the sound once 
 	 */
 	public void play(){
+		if(isLoaded()){
+			if(isOGG()){
+				oggclip.play();
+			}else{
+				openSampledClip();
+				sampledclip.start();
+			}
+		}
 		
 	}
 	/**
 	 * Loops the sound over and over again
 	 */
 	public void loop(){
-		
+		if(isLoaded()){
+			if(isOGG()){
+				oggclip.loop();
+			}else{
+				openSampledClip();
+				sampledclip.loop(Clip.LOOP_CONTINUOUSLY);
+			}
+		}
 	}
+	
 	/**
 	 * Pauses the sound
 	 */
 	public void pause(){
-		
+		if(isLoaded()){
+			if(isOGG()){
+				oggclip.pause();
+			}else{
+			
+				sampledclip.stop();
+			}
+		}
 	}
 	/**
 	 * Stops the sound
 	 */
 	public void stop(){
+		
+		if(isLoaded()){
+			if(isOGG()){
+				oggclip.stop();
+			}else{
+				openSampledClip();
+				sampledclip.stop();
+				sampledclip.flush();
+			}
+		}
+	}
+	
+	/**
+	 * Stops the sound
+	 */
+	public void resume(){
+		
+		if(isLoaded()){
+			if(isOGG()){
+				oggclip.resume();
+			}else{
+				sampledclip.start();
+			}
+		}
+	}
+	
+	
+	private void openSampledClip(){
+		if(!sampledclip.isOpen()){
+			try {
+				sampledclip.open(in);
+			} catch (LineUnavailableException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			gainControl =  (FloatControl) sampledclip.getControl(FloatControl.Type.MASTER_GAIN);
+			setSampledGain(sampledgain);
+		}
 		
 	}
 	/**
@@ -103,6 +167,25 @@ public class Sound implements Resource{
 	 * @param gain -  amount must be between 0.0f and 1.0f
 	 */
 	public void setGain(float gain){
+		if(isOGG()){
+			oggclip.setGain(gain);
+		}else{
+			this.sampledgain = gain*100f;
+		}
+		
+	}
+	
+	
+	/**
+	 * Sets the gain of the sound(volume) in decibels 
+	 * Min is -80.0f Max is 6.00f(not exact)
+	 * */
+	private void setSampledGain(float percent){
+		float min = -80.0f;
+		float max = 6.0f;
+		float difference = Math.abs(min)+max;
+		gainControl.setValue((difference*(percent/100.0f))-80.0f);
+		
 		
 	}
 

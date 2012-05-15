@@ -1,9 +1,7 @@
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import org.newdawn.easyogg.OggClip;
 
 import com.javagroup.game.graphics.BasicGame;
 import com.javagroup.game.graphics.image.Art;
@@ -14,6 +12,7 @@ import com.javagroup.game.graphics.particle.Emitter;
 import com.javagroup.game.graphics.particle.ParticleSystem;
 import com.javagroup.game.input.Input;
 import com.javagroup.game.map.Map;
+import com.javagroup.game.sound.Sound;
 
 public class Game extends BasicGame {
 
@@ -25,7 +24,7 @@ public class Game extends BasicGame {
 	Emitter emitter, emitter2, emitter3;
 	Font font = new Font();
 	BufferedImage testFont;
-	OggClip clip ;
+	Sound sound ;
 
 
 
@@ -37,14 +36,10 @@ public class Game extends BasicGame {
 		Art.init();
 		testFont = Font.getFont().getLetters("PARTICLES");
 		
-		try {
-			clip = new OggClip(Game.class.getResourceAsStream("/TheAdventureBegins8-bitremix.ogg"));
-			clip.setGain(1.f);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		clip.loop();
+		sound = new Sound("/echelonfadeout.wav");
+		sound.load();
+		sound.setGain(1.0f);
+		sound.loop();
 
 		// Testing
 		{
@@ -119,7 +114,7 @@ public class Game extends BasicGame {
 
 	public static void main(String[] args) {
 		Game game = new Game();
-		game.createFullSCreen();
+		game.createWindow();
 	}
 
 }
