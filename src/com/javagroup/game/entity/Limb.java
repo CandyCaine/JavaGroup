@@ -1,4 +1,4 @@
-package com.javagroup.game.graphics.entity;
+package com.javagroup.game.entity;
 
 import java.awt.Graphics2D;
 

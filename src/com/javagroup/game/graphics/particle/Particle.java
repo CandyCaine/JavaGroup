@@ -40,9 +40,9 @@ public class Particle {
 	public void render(Emitter emitter, Graphics g) {
 		g.setColor(Color.magenta);
 		if (emitter.hasImage()) {
-			g.drawImage(emitter.getImage(), (int)x, (int)y, null);
+			g.drawImage(emitter.getImage(), Math.round(x), Math.round(y), null);
 		} else {
-			g.fillRect((int)x, (int)y, 8, 8);
+			g.fillRect(Math.round(x), Math.round(y), 8, 8);
 		}
 	}
 }

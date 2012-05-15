@@ -3,15 +3,16 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 import com.javagroup.game.graphics.BasicGame;
+import com.javagroup.game.graphics.entity.testEnt;
 import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.graphics.image.Font;
-<<<<<<< HEAD
+
 import com.javagroup.game.graphics.particle.Emitter;
 import com.javagroup.game.graphics.particle.ParticleSystem;
-=======
+
 import com.javagroup.game.graphics.particle.Effect;
 import com.javagroup.game.graphics.particle.Effect.EffectType;
->>>>>>> 1688c9cc633edf3d86b226c3d4781226aa1f566b
+
 import com.javagroup.game.input.Input;
 import com.javagroup.game.map.Map;
 
@@ -25,13 +26,9 @@ public class Game extends BasicGame {
 	Emitter emitter, emitter2, emitter3;
 	Font font = new Font();
 	BufferedImage testFont;
-<<<<<<< HEAD
 
-	@Override
-	public void initiate() {
-		Art.init();
-		testFont = font.getLetters("PARTICLES");
-=======
+
+
 	testEnt testent;
 
 	
@@ -41,12 +38,12 @@ public class Game extends BasicGame {
 		testFont = Font.getFont().getLetters("PARTICLES");
 		
 		
->>>>>>> 1688c9cc633edf3d86b226c3d4781226aa1f566b
+
 		// Testing
 		{
 			testent = new testEnt();
 			testMap = new Map("Test", 32, 32);
-<<<<<<< HEAD
+
 			particleSystem = new ParticleSystem();
 			emitter = new Emitter(1000, 2.5F, 100);
 			emitter.setLocation(-300, 250);
@@ -60,12 +57,12 @@ public class Game extends BasicGame {
 			emitter3.setLocation(-300, 250);
 			emitter3.setImage(Art.getTileSheet().getImage(80, 32, 8, 8));
 			particleSystem.addEmitter(emitter3);
-=======
+
 
 			Effect.playEffect(EffectType.BloodEffect, 100, 200);
 			Effect.genericParticleEffect();
 
->>>>>>> 1688c9cc633edf3d86b226c3d4781226aa1f566b
+
 		}
 
 	}
@@ -75,11 +72,10 @@ public class Game extends BasicGame {
 		testMap.render(g, Math.round(x), Math.round(y));
 		particleSystem.render(g);
 		g.drawImage(testFont, Math.round(x) + (-350), 100, testFont.getWidth(), testFont.getHeight(), null);
-<<<<<<< HEAD
-=======
+
 		testent.render(g);
 		Effect.getEffect().render(g);
->>>>>>> 1688c9cc633edf3d86b226c3d4781226aa1f566b
+
 	}
 
 	@Override
@@ -89,20 +85,27 @@ public class Game extends BasicGame {
 		}
 
 		if (Input.getInput().isKeyDown(KeyEvent.VK_A)) {
-			x -= 0.1F * delta;
-		}
-
-		if (Input.getInput().isKeyDown(KeyEvent.VK_D)) {
 			x += 0.1F * delta;
 		}
 
-<<<<<<< HEAD
+		if (Input.getInput().isKeyDown(KeyEvent.VK_D)) {
+			x -= 0.1F * delta;
+		}
+		if (Input.getInput().isKeyDown(KeyEvent.VK_W)) {
+			y += 0.1F * delta;
+		}
+
+		if (Input.getInput().isKeyDown(KeyEvent.VK_S)) {
+			y -= 0.1F * delta;
+		}
+
+
 		particleSystem.update(x, y);
 
-=======
+
 		testent.update(delta);
 		Effect.getEffect().update(x, y);
->>>>>>> 1688c9cc633edf3d86b226c3d4781226aa1f566b
+
 	}
 
 	public static void main(String[] args) {
