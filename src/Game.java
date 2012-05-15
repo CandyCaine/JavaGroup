@@ -12,13 +12,13 @@ import com.javagroup.game.graphics.particle.Emitter;
 import com.javagroup.game.graphics.particle.ParticleSystem;
 import com.javagroup.game.input.Input;
 import com.javagroup.game.map.Map;
+import com.javagroup.game.map.camera.Camera;
 import com.javagroup.game.sound.Sound;
 
 public class Game extends BasicGame {
 
 	Map testMap;
-	float x = 0;
-	float y;
+
 
 	ParticleSystem particleSystem;
 	Emitter emitter, emitter2, emitter3;
@@ -46,7 +46,7 @@ public class Game extends BasicGame {
 		// Testing
 		{
 			testent = new testEnt();
-			testMap = new Map("Test",400, 400);
+			testMap = new Map("Test",24, 24);
 
 			particleSystem = new ParticleSystem();
 			emitter = new Emitter(1000, 2.5F, 100);
@@ -74,10 +74,10 @@ public class Game extends BasicGame {
 
 	@Override
 	public void render(Graphics2D g) {
-		testMap.render(g, Math.round(x), Math.round(y));
+		testMap.render(g, Math.round(Camera.getCamera().getXOff()), Math.round(Camera.getCamera().getYOff()));
 		particleSystem.render(g);
-		g.drawImage(testFont, Math.round(x) + (-350), (int) y, testFont.getWidth(), testFont.getHeight(), null);
-		g.drawImage(testFont2, Math.round(x) + (-600), (int) y, testFont.getWidth(), testFont.getHeight(), null);
+		g.drawImage(testFont, Math.round(Camera.getCamera().getXOff()) + (-350), (int) Camera.getCamera().getYOff(), testFont.getWidth(), testFont.getHeight(), null);
+	//	g.drawImage(testFont2, Math.round(x) + (-600), (int) y, testFont.getWidth(), testFont.getHeight(), null);
 
 		testent.render(g);
 		Effect.getEffect().render(g);
@@ -91,28 +91,22 @@ public class Game extends BasicGame {
 		}
 
 		if (Input.getInput().isKeyDown(KeyEvent.VK_A)) {
-			x += 0.1F * delta;
+			Camera.getCamera().setXOff(Camera.getCamera().getXOff()+ 0.1F * delta) ;
 		}
 
 		if (Input.getInput().isKeyDown(KeyEvent.VK_D)) {
-			x -= 0.1F * delta;
+			Camera.getCamera().setXOff(Camera.getCamera().getXOff()- 0.1F * delta) ;
 		}
 		if (Input.getInput().isKeyDown(KeyEvent.VK_W)) {
-			y += 0.1F * delta;
+			Camera.getCamera().setYOff(Camera.getCamera().getYOff()+ 0.1F * delta) ;
 		}
 
 		if (Input.getInput().isKeyDown(KeyEvent.VK_S)) {
-			y -= 0.1F * delta;
+			Camera.getCamera().setYOff(Camera.getCamera().getYOff()- 0.1F * delta) ;
 		}
 
-
-		particleSystem.update(x, y);
-
-
 		testent.update(delta);
-		Effect.getEffect().update(x, y);
-		Effect.getEffect().update(500, y);
-
+	
 	}
 
 	public static void main(String[] args) {

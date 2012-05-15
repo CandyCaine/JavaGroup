@@ -42,7 +42,7 @@ public class LoadManager {
 	 */
 	public void addResource(Resource resource){
 		resources.add(resource);
-		tobeLoaded ++;
+		tobeLoaded++;
 	}
 	
 	/**
