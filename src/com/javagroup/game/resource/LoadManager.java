@@ -26,7 +26,7 @@ public class LoadManager {
 	 * 
 	 * @return LoadManager instance
 	 */
-	public static LoadManager getLoadManager(){
+	public static LoadManager getLoader(){
 		return loadmanager;
 		
 	}
@@ -63,6 +63,7 @@ public class LoadManager {
 		percentage = loaded/tobeLoaded;
 		return percentage;	
 	}
+	
 	/**
 	 * check to see if you are done loading
 	 * @return true if the percentage of files loaded is equal to 100

@@ -119,7 +119,7 @@ public class Game extends BasicGame {
 
 	public static void main(String[] args) {
 		Game game = new Game();
-		game.createWindow();
+		game.createFullSCreen();
 	}
 
 }

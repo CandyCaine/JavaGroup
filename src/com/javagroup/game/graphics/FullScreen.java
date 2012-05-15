@@ -90,7 +90,7 @@ public class FullScreen extends JFrame{
 	/**
 	 * get the size of the current full screen window
 	 * 
-	 * @return thes dimension of the screen in fullscreen
+	 * @return the dimension of the screen in full screen
 	 */
 	public Dimension getScreenSize(){
 		return device.getFullScreenWindow().getSize();
