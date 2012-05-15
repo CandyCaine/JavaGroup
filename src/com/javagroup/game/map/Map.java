@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.javagroup.game.graphics.BasicGame;
 import com.javagroup.game.graphics.image.Art;
+import com.javagroup.game.map.camera.Camera;
 
 
 public class Map {
@@ -97,14 +98,14 @@ public class Map {
 		}
 	}
 	
-	public void render(Graphics g, float xOffset, float yOffset) {
+	public void render(Graphics g) {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				if(tiles[x][y].getY()+yOffset+Art.getTileSheet().getCellSize() < 0 || tiles[x][y].getY()+yOffset > BasicGame.size.height)
+				if(Math.round(tiles[x][y].getY()+Camera.getCamera().getYOff()+Art.getTileSheet().getCellSize()) < 0 || tiles[x][y].getY()+Camera.getCamera().getYOff() > BasicGame.size.height)
 					continue;
-				else if(tiles[x][y].getX()+xOffset+Art.getTileSheet().getCellSize() < 0 || tiles[x][y].getX()+xOffset > BasicGame.size.width)
+				else if(tiles[x][y].getX()+Camera.getCamera().getXOff()+Art.getTileSheet().getCellSize() < 0 || tiles[x][y].getX()+Camera.getCamera().getXOff() > BasicGame.size.width)
 					continue;
-				g.drawImage(tiles[x][y].getTexture().getImage(), (int)(xOffset + tiles[x][y].getX()), (int)(yOffset + tiles[x][y].getY()), (int)tileSize, (int)tileSize, null);
+				g.drawImage(tiles[x][y].getTexture().getImage(), Math.round(Camera.getCamera().getXOff()) + (int)tiles[x][y].getX(), Math.round(Camera.getCamera().getYOff()) + (int)tiles[x][y].getY(), (int)tileSize, (int)tileSize, null);
 			}
 		}
 		

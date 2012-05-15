@@ -34,7 +34,7 @@ public class Game extends BasicGame {
 
 	public void initiate() {
 		Art.init();
-		testFont = Font.getFont().getLetters("PARTICLES");
+		//testFont = Font.getFont().getLetters("PARTICLES");
 		
 		testFont2 = Font.getFont().getLetters("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"); //<----Gives a weird error
 		
@@ -74,10 +74,10 @@ public class Game extends BasicGame {
 
 	@Override
 	public void render(Graphics2D g) {
-		testMap.render(g, Math.round(Camera.getCamera().getXOff()), Math.round(Camera.getCamera().getYOff()));
+		testMap.render(g);
 		particleSystem.render(g);
-		g.drawImage(testFont, Math.round(Camera.getCamera().getXOff()) + (-350), (int) Camera.getCamera().getYOff(), testFont.getWidth(), testFont.getHeight(), null);
-	//	g.drawImage(testFont2, Math.round(x) + (-600), (int) y, testFont.getWidth(), testFont.getHeight(), null);
+		//g.drawImage(testFont, Math.round(Camera.getCamera().getXOff()) + (-350), (int) Camera.getCamera().getYOff(), testFont.getWidth(), testFont.getHeight(), null);
+		g.drawImage(testFont2, Math.round(Camera.getCamera().getXOff()) + (-600), (int) Camera.getCamera().getYOff(), testFont2.getWidth(), testFont2.getHeight(), null);
 
 		testent.render(g);
 		Effect.getEffect().render(g);
