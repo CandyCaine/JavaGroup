@@ -16,9 +16,14 @@ public class Camera {
 		return camera;
 	}
 	
+	
+	private boolean moving = false;
+	
 	private float xoffSet = 0;
 	
 	private float yoffSet = 0;
+	
+	
 	/**
 	 * 
 	 * @return the x offset of the camera
@@ -48,6 +53,14 @@ public class Camera {
 	 */
 	public void setYOff(float yoff){
 		this.yoffSet = yoff;
+	}
+	
+	public boolean isMoving(){
+		return moving;
+	}
+	
+	public void move(int Direction){
+		
 	}
 	
 	

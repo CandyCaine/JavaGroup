@@ -9,7 +9,21 @@ public class StateManager {
 	private GameState currentState;
 	private ArrayList<GameState> states;
 	
-	public StateManager() {
+	private static StateManager manager = new StateManager();
+	
+	private StateManager() {
+		states = new ArrayList<GameState>();
+		
+	}
+	
+	public void initiate(){
+		states.add(new MainMenuState(StateType.MAIN_MENU));
+		states.add(new MainGameState(StateType.MAINGAME));
+		setState(StateType.MAIN_MENU);
+	}
+	
+	public static StateManager getStateManager(){
+		return manager;
 	}
 	
 	public GameState getCurrentState() {

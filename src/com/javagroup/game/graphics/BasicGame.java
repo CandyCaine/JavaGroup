@@ -1,12 +1,14 @@
 package com.javagroup.game.graphics;
 
-import java.awt.Dimension;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
+import java.awt.RenderingHints;
 import java.awt.image.BufferStrategy;
 
+import com.javagroup.game.graphics.image.Art;
 import com.javagroup.game.input.Input;
+import com.javagroup.game.state.StateManager;
 
 
 /**
@@ -16,7 +18,7 @@ import com.javagroup.game.input.Input;
  *
  */
 
-@SuppressWarnings("unused")
+
 public abstract class BasicGame implements Runnable{
 	
 	private BufferStrategy buffer;
@@ -48,6 +50,8 @@ public abstract class BasicGame implements Runnable{
 		
 		gamewindow = new GameWindow(this);
 		fullwindow = new FullScreen(this);
+		
+		
 	}
 	
 	
@@ -65,7 +69,10 @@ public abstract class BasicGame implements Runnable{
 
 	@Override
 	public void run() {
+		Display.getDisplay().addGame(this);
+		Art.init();
 		initiate();
+		StateManager.getStateManager().initiate();
 		
 		int delta = 0;
 
@@ -80,6 +87,8 @@ public abstract class BasicGame implements Runnable{
 					g.fillRect(0, 0, size.width, size.height);
 					gamewindow.setTitle(title + "   fps:"+ fps);
 			
+					g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+					
 					render(g);
 			
 					g.dispose();

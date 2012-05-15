@@ -8,7 +8,7 @@ public abstract class GameState{
 	public static enum StateType {
 		
 		MAIN_MENU	(0, "MainMenu"),
-		GAME		(1, "Game");
+		MAINGAME		(1, "MainGame");
 		
 		private int id;
 		private String name;		

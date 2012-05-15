@@ -18,7 +18,7 @@ public class Font {
 		return xfont;
 	}
 	
-	public Font(){ 
+	private Font(){ 
 		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		try {
 			font = ImageIO.read(Font.class.getResource("/font.png"));

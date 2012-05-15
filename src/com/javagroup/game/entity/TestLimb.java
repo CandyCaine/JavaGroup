@@ -1,7 +1,7 @@
+package com.javagroup.game.entity;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
-import com.javagroup.game.entity.Limb;
 import com.javagroup.game.graphics.animation.Animation;
 import com.javagroup.game.graphics.image.SpriteSheet;
 import com.javagroup.game.input.Input;

@@ -62,6 +62,14 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, F
 		return keys[key];
 	}
 	
+	public boolean checkForKeyPress(){
+		for(boolean key : keys){
+			if(key)
+				return true;
+		}
+		return false;
+	}
+	
 	public boolean isMouseDown(MouseButton button) {
 		if (button == MouseButton.LEFT_MOUSE_BUTTON) {
 			return leftMouseButton;
