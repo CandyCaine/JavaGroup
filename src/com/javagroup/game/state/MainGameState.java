@@ -113,6 +113,5 @@ public class MainGameState extends GameState{
 		}
 
 		testent.update(delta);
-	
 	}
 }

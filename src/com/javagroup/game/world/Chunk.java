@@ -11,9 +11,20 @@ public class Chunk {
 	
 	private Map<Coordinate, Tile> tiles;
 	
+	private Biome biome;
+	private boolean biomeSet = false;
+	
 	public Chunk(int x, int y) {
 		tiles = new HashMap<Coordinate, Tile>();
 		coordinate = new Coordinate(x, y);
+		addTiles();
+	}
+	
+	public Chunk(int x, int y, Biome biome) {
+		tiles = new HashMap<Coordinate, Tile>();
+		coordinate = new Coordinate(x, y);
+		this.biome = biome;
+		biomeSet = true;
 		addTiles();
 	}
 	

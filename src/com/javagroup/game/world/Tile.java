@@ -51,6 +51,11 @@ public class Tile {
 		return coordinate;
 	}
 	
+	public void setTile(int id) {
+		this.id = id;
+		this.texture = Art.getTextureByID(id);
+	}
+	
 	public void render(Graphics g) {
 		g.drawImage(texture.getImage(), Math.round(((coordinate.getX() * tileSize) + Math.round(Camera.getCamera().getXOff()))), Math.round(((coordinate.getY() * Tile.tileSize) + Math.round(Camera.getCamera().getYOff()))), null);
 	}
