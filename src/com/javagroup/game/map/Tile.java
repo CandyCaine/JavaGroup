@@ -77,8 +77,6 @@ public class Tile {
 		
 			
 			if(type == null){
-				System.out.println("Im null");
-				
 				return;
 			}
 			
@@ -86,8 +84,6 @@ public class Tile {
 			
 			if(type!= null){
 				collideable = type.isCollidable();
-				
-				System.out.println("i'm not null");
 			}
 			
 			}

@@ -71,7 +71,7 @@ public class GameButton implements GameMenuItem {
 	@Override
 	public void render(Graphics2D g) {
 		if(text !=null){
-			g.drawImage(text, getX(), 0, width, height, null);
+			g.drawImage(text, Math.round(parent.getX()+getX()), Math.round(parent.getY()+getY()), width, height, null);
 		}
 	}
 
@@ -115,6 +115,12 @@ public class GameButton implements GameMenuItem {
 
 	@Override
 	public void setBackground(Color color) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setParent(MenuInterface parent) {
 		// TODO Auto-generated method stub
 		
 	}

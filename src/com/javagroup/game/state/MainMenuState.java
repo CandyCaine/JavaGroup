@@ -15,7 +15,7 @@ public class MainMenuState extends GameState {
 	public MainMenuState(StateType type) {
 		super(type);
 		words = Font.getFont().getLetters("MAIN MENU HERE");
-		words2 = Font.getFont().getLetters("PRES ANY KEY TO CONTINUE");
+		words2 = Font.getFont().getLetters("PRESS ANY KEY TO CONTINUE");
 		
 		
 	}
@@ -30,8 +30,8 @@ public class MainMenuState extends GameState {
 	@Override
 	public void render(Graphics2D g) {
 		
-		g.drawImage(words,190,200,null);
-		g.drawImage(words2,110,300,null);
+		g.drawImage(words,40,200,500,32,null);
+		g.drawImage(words2,20,300,600,32,null);
 		
 	}
 

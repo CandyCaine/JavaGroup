@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 public class Font {
 
 	private BufferedImage font;
-	private final int fontSize = 16;
+	private final int fontSize = 70;
 	private String characters;
 	
 	private static Font xfont = new Font();
@@ -19,9 +19,9 @@ public class Font {
 	}
 	
 	private Font(){ 
-		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyz0123456789";
+		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		try {
-			font = ImageIO.read(Font.class.getResource("/font.png"));
+			font = ImageIO.read(Font.class.getResource("/lego_font.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
