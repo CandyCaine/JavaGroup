@@ -19,7 +19,7 @@ public class Font {
 	}
 	
 	private Font(){ 
-		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 		try {
 			font = ImageIO.read(Font.class.getResource("/lego_font.png"));
 		} catch (IOException e) {

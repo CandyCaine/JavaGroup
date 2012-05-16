@@ -39,7 +39,7 @@ public class MainGameState extends GameState{
 		
 		//testFont = Font.getFont().getLetters("PARTICLES");
 		
-		testFont2 = Font.getFont().getLetters("test0908978"); //<----Gives a weird error
+		testFont2 = Font.getFont().getLetters("TEST0908978"); //<----Gives a weird error
 		
 		sound = new Sound("/creepymusicO.ogg");
 		sound.load();
@@ -67,7 +67,7 @@ public class MainGameState extends GameState{
 
 
 			//Effect.playEffect(EffectType.BloodEffect, 100, 200);
-			//Effect.genericParticleEffect();
+			Effect.genericParticleEffect();
 			Effect.playEffect(EffectType.BloodEffect, 500, 50);
 
 
