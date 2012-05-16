@@ -1,8 +1,11 @@
 package com.javagroup.game.graphics.menu;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Rectangle;
 
+import com.javagroup.game.graphics.image.Font;
 import com.javagroup.game.input.Input;
 
 public class GameButton implements GameMenuItem {
@@ -16,10 +19,28 @@ public class GameButton implements GameMenuItem {
 	private int height = 30;
 
 	private boolean focused;
-
-	public GameButton() {
-
+	
+	private MenuInterface parent;
+	
+	private Image text;
+	
+	private Image[] images = new Image[3];
+	
+	private Color[] colors = new Color[3];
+	
+	public GameButton(String text) {
+		this.text =Font.getFont().getLetters(text);
 	}
+	
+	public GameButton(Image image) {
+		images[0] = image;
+	}
+	
+	public void setText(String text){
+		
+	}
+	
+	
 
 	@Override
 	public float getX() {
@@ -49,7 +70,9 @@ public class GameButton implements GameMenuItem {
 
 	@Override
 	public void render(Graphics2D g) {
-
+		if(text !=null){
+			g.drawImage(text, getX(), 0, width, height, null);
+		}
 	}
 
 	@Override
@@ -88,6 +111,12 @@ public class GameButton implements GameMenuItem {
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public void setBackground(Color color) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

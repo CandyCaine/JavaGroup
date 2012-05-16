@@ -19,7 +19,7 @@ public class Font {
 	}
 	
 	private Font(){ 
-		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyz0123456789";
 		try {
 			font = ImageIO.read(Font.class.getResource("/font.png"));
 		} catch (IOException e) {

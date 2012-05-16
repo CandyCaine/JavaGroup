@@ -39,7 +39,7 @@ public class MainGameState extends GameState{
 		
 		//testFont = Font.getFont().getLetters("PARTICLES");
 		
-		testFont2 = Font.getFont().getLetters("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"); //<----Gives a weird error
+		testFont2 = Font.getFont().getLetters("test0908978"); //<----Gives a weird error
 		
 		sound = new Sound("/creepymusicO.ogg");
 		sound.load();
@@ -49,7 +49,7 @@ public class MainGameState extends GameState{
 		// Testing
 		{
 			testent = new testEnt();
-			testMap = new Map("Test",24, 24);
+			testMap = new Map("Test",6, 5);
 
 			particleSystem = new ParticleSystem();
 			emitter = new Emitter(1000, 2.5F, 100);

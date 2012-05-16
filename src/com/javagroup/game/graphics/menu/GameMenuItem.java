@@ -1,5 +1,6 @@
 package com.javagroup.game.graphics.menu;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 /**
@@ -81,6 +82,20 @@ public interface GameMenuItem {
 	 * @param delta
 	 */
 	public void update(int delta);
+	
+	/**
+	 * set the background color of the button
+	 * 
+	 * @param color - the color you want the background to be
+	 */
+	public void setBackground(Color color);
+	
+	/**
+	 * set the parent menu for this item
+	 * 
+	 * @param parent - the parent menu for this item
+	 */
+	public void setParent(MenuInterface parent);
 	
 	
 
