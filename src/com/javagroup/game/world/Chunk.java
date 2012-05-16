@@ -14,6 +14,7 @@ public class Chunk {
 	public Chunk(int x, int y) {
 		tiles = new HashMap<Coordinate, Tile>();
 		coordinate = new Coordinate(x, y);
+		addTiles();
 	}
 	
 	public Coordinate getCoordinate() {

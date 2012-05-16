@@ -52,6 +52,6 @@ public class Tile {
 	}
 	
 	public void render(Graphics g) {
-		g.drawImage(texture.getImage(), Math.round((coordinate.getX() + Camera.getCamera().getXOff())), Math.round((coordinate.getX() + Camera.getCamera().getYOff())), null);
+		g.drawImage(texture.getImage(), Math.round(((coordinate.getX() * tileSize) + Math.round(Camera.getCamera().getXOff()))), Math.round(((coordinate.getY() * Tile.tileSize) + Math.round(Camera.getCamera().getYOff()))), null);
 	}
 }

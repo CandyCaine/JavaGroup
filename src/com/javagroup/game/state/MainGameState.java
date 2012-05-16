@@ -17,11 +17,13 @@ import com.javagroup.game.input.Input;
 import com.javagroup.game.map.Map;
 import com.javagroup.game.map.camera.Camera;
 import com.javagroup.game.sound.Sound;
+import com.javagroup.game.world.World;
 
 
 public class MainGameState extends GameState{
 	
-	Map testMap;
+//	Map testMap;
+	World world;
 
 
 	ParticleSystem particleSystem;
@@ -49,7 +51,7 @@ public class MainGameState extends GameState{
 		// Testing
 		{
 			testent = new testEnt();
-			testMap = new Map("Test",6, 5);
+		//	testMap = new Map("Test",6, 5);
 
 			particleSystem = new ParticleSystem();
 			emitter = new Emitter(1000, 2.5F, 100);
@@ -72,11 +74,14 @@ public class MainGameState extends GameState{
 
 
 		}
+		
+		world = new World(2, 2);
 	}
 
 	@Override
 	public void render(Graphics2D g) {
-		testMap.render(g);
+		world.render(g);
+		//testMap.render(g);
 		particleSystem.render(g);
 		//g.drawImage(testFont, Math.round(Camera.getCamera().getXOff()) + (-350), (int) Camera.getCamera().getYOff(), testFont.getWidth(), testFont.getHeight(), null);
 		g.drawImage(testFont2, Math.round(Camera.getCamera().getXOff()) + (-600), (int) Camera.getCamera().getYOff(), null);

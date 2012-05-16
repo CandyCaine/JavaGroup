@@ -13,6 +13,15 @@ public class World {
 		this.width = width;
 		this.height = height;
 		chunkList = new ChunkList();
+		createChunks(width, height);
+	}
+	
+	public void createChunks(int width, int height) {
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				chunkList.addChunk(new Chunk(x * (Chunk.size), y * (Chunk.size)));
+			}
+		}
 	}
 	
 	public int getWidth() {
