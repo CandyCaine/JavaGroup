@@ -10,7 +10,7 @@ public class Camera {
 	}
 	/**
 	 * get the single instance of this class 
-	 * @return Return teh camera object 
+	 * @return Return the camera object 
 	 */
 	public static Camera getCamera(){
 		return camera;
@@ -41,7 +41,7 @@ public class Camera {
 	
 	/**
 	 * 
-	 * @param xoff set teh offset of the camera
+	 * @param xoff set the offset of the camera
 	 */
 	public void setXOff(float xoff){
 		this.xoffSet = xoff;
@@ -55,6 +55,10 @@ public class Camera {
 		this.yoffSet = yoff;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean isMoving(){
 		return moving;
 	}

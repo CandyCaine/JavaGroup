@@ -41,9 +41,9 @@ public class MainGameState extends GameState{
 		
 		testFont2 = Font.getFont().getLetters("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"); //<----Gives a weird error
 		
-		sound = new Sound("/TheAdventureBegins8-bitremix.ogg");
+		sound = new Sound("/creepymusicO.ogg");
 		sound.load();
-		sound.setGain(.6f);
+		sound.setGain(.99f);
 		sound.loop();
 
 		// Testing

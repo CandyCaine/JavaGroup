@@ -55,6 +55,7 @@ public class testEnt extends Entity{
 			current = down;
 			current.setPaused(false);
 		}
+		
 		limb.update(delta);
 		current.update();
 		
