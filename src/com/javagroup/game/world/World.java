@@ -1,11 +1,17 @@
 package com.javagroup.game.world;
 
 import java.awt.Graphics;
+import java.util.Random;
+
+import com.javagroup.game.graphics.BasicGame;
+import com.javagroup.game.map.camera.Camera;
+import com.javagroup.game.world.biome.GrassBiome;
 
 public class World {
 
 	private int width;
 	private int height;
+	private Random r = new Random();
 	
 	private ChunkList chunkList;
 	
@@ -19,7 +25,7 @@ public class World {
 	public void createChunks(int width, int height) {
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				chunkList.addChunk(new Chunk(x * (Chunk.size), y * (Chunk.size)));
+				chunkList.addChunk(new Chunk(x * (Chunk.size), y * (Chunk.size), new GrassBiome(), this));
 			}
 		}
 	}
@@ -46,6 +52,10 @@ public class World {
 	
 	public Tile getCurrentTile() {
 		return null;
+	}
+	
+	public Random getRandom() {
+		return r;
 	}
 	
 	public void render(Graphics g) {
